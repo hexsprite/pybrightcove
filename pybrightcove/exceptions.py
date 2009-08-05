@@ -20,22 +20,17 @@
 
 
 class PyBrightcoveError(Exception):
-
-    def __init__(self, reason):
-        super(PyBrightcoveError, self).__init__(reason)
+    pass
 
 
 class NoDataFoundError(PyBrightcoveError):
-
-    def __init__(self, reason=None):
-        super(NoDataFoundError, self).__init__(reason)
-
+    pass
 
 class BrightcoveError(Exception):
     description = "a general error"
 
-    def __init__(self):
-        super(BrightcoveError, self).__init__(self.description)
+    # def __init__(self):
+    #     super(BrightcoveError, self).__init__(self.description)
 
     @staticmethod
     def raise_exception(data):

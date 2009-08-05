@@ -18,7 +18,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-import hashlib
+try:
+    from hashlib import md5
+except ImportError:
+    from md5 import md5
+
 import simplejson
 import urllib2
 import urllib
@@ -98,7 +102,7 @@ class Connection(object):
             if key and kwargs[key]:
                 params[key] = kwargs[key]
         if file_to_upload:
-            m = hashlib.md5()
+            m = md5()
             fp = open(file_to_upload, 'rb')
             bits = fp.read(262144)  ## 256KB
             while bits:
